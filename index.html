@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Global Help Hub</title>
+
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background: #0d6efd;
+      color: white;
+      padding: 20px;
+    }
+    section {
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      margin: 15px;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    button {
+      padding: 10px 20px;
+      background: #0d6efd;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🌍 Global Help Hub</h1>
+  <p>Helping people learn, grow & manage money</p>
+</header>
+
+<section>
+  <div class="card">
+    <h2>💰 Financial Tip</h2>
+    <p id="tip">Spend less than you earn.</p>
+    <button onclick="newTip()">New Tip</button>
+  </div>
+
+  <div class="card">
+    <h2>📈 Motivation</h2>
+    <p id="motivation">Small steps every day change your life.</p>
+    <button onclick="newMotivation()">Inspire Me</button>
+  </div>
+
+  <div class="card">
+    <h2>🧠 Budget Advice</h2>
+    <p>Track income, save at least 10%, avoid debt.</p>
+  </div>
+</section>
+
+<script>
+  const tips = [
+    "Save before you spend.",
+    "Avoid unnecessary debt.",
+    "Invest in skills.",
+    "Budget monthly.",
+    "Emergency funds are essential."
+  ];
+
+  const motivation = [
+    "You are capable.",
+    "Your future is built today.",
+    "Consistency beats luck.",
+    "Start where you are.",
+    "Progress over perfection."
+  ];
+
+  function newTip() {
+    document.getElementById("tip").innerText =
+      tips[Math.floor(Math.random() * tips.length)];
+  }
+
+  function newMotivation() {
+    document.getElementById("motivation").innerText =
+      motivation[Math.floor(Math.random() * motivation.length)];
+  }
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js');
+  }
+</script>
+
+</body>
+</html>
